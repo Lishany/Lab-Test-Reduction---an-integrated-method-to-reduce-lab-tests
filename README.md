@@ -2,6 +2,7 @@
 
 ### Data Description
 data directory: ./Processed_data/
+
 Training data:
 - Cut_len: Cut length, default = 30
 - TRAIN_vital_data_all.npy: vital features (mean, variation) , size (#patients, Cut_len, 2 * #vital tests)
