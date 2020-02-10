@@ -1,9 +1,9 @@
 import numpy as np
 KKK = 1
-main_device_id = 2
+main_device_id = 2 # GPU device id
 penalty = 1.5
 #load training data and test data
-data_dir = '../../Processed_data/'
+data_dir = './Processed_data/'
 TRAIN_vital_data = np.load(data_dir+'TRAIN_vital_data_all.npy')
 TRAIN_test_data_fill = np.load(data_dir+'TRAIN_test_data.npy').astype('float')
 TRAIN_visit_mask_all = np.load(data_dir+'TRAIN_visit_mask_all.npy')
@@ -550,7 +550,7 @@ for n_epoch in range(NUM_EPOCH):
         print(1-(notdoing_p0_t1_on_nan_count+notdoing_p1_t0_on_nan_count)/nnan_count)
 print('--END--')
 
-
+torch.save(simplemodel.state_dict(), 'model_para.pkl')
 
 #Test
 #test response 
@@ -677,8 +677,6 @@ for point in bbb:
         visit_mask_all.append(visit_mask)
         #visit_mask
 
-        
-
         notdoing_p0_t1_on_nan_count += torch.sum(pre_ab_same_on_notdoing==-1).item()
         notdoing_p1_t0_on_nan_count += torch.sum(pre_ab_same_on_notdoing==1).item()
         notdoing_p_same_t_on_nan_count += torch.sum(pre_ab_same_on_notdoing==0).item()
@@ -714,6 +712,7 @@ for point in bbb:
     #break
 print('--END--')
 
+np.save('tradeoff_result_test.npy',np.array(temp_ab_test))
 
 #draw plot
 #doing_pro = [w[2] for w in temp_ab]
@@ -730,4 +729,5 @@ my_x_ticks = np.arange(0, 1.0001, 0.1)
 my_y_ticks = np.arange(0.7, 1, 0.05)
 plt.xticks(my_x_ticks)
 plt.yticks(my_y_ticks)
+plt.savefig('trade-off_curve.pdf')
 plt.show() 
