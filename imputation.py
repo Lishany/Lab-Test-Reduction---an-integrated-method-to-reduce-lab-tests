@@ -8,7 +8,7 @@ KKK = 1
 main_device_id = 4
 device_ids = [4]
 
-data_dir = '../../Processed_data/'
+data_dir = './Processed_data/'
 TRAIN_vital_data = np.load(data_dir+'TRAIN_vital_data_all.npy')
 TRAIN_test_data_fill = np.load(data_dir+'TRAIN_test_data.npy').astype('float')
 TRAIN_visit_mask_all = np.load(data_dir+'TRAIN_visit_mask_all.npy')
