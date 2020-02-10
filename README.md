@@ -1,6 +1,7 @@
 ## Lab Test Reduction - Predict or draw blood: an integrated method to reduce lab tests
 
 ### Data Description
+data directory: ./Processed_data/
 Training data:
 - Cut_len: Cut length, default = 30
 - TRAIN_vital_data_all.npy: vital features (mean, variation) , size (#patients, Cut_len, 2 * #vital tests)
@@ -23,5 +24,5 @@ Test data: (similar as above)
 ### Imputation for missing value
 *run imputation.py*: Train the imputation model and save it as 'imputation_model4.pkl'
 
-### Train model
-*run main.py*: Train and save the model as 'model_para.pkl'
+### Train and test model
+*run main.py*: Train and save the model as 'model_para.pkl', validate model on the test data and save the trade-off (prediction vs. reduction) result.
