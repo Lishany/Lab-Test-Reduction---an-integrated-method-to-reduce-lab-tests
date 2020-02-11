@@ -1,5 +1,7 @@
 ## Lab Test Reduction - Predict or draw blood: an integrated method to reduce lab tests
 
+Serial laboratory testing is common, especially in Intensive Care Units (ICU). Such repeated testing is expensive and may even harm patients. Identifying specific tests that can be omitted is needed. We propose a deep-learning method to jointly predict future lab test events to be omitted and the values of the omitted events based on observed testing values. And we validated our model on an openly available critical care dataset - [MIMIC III][1].
+
 ### Data Description
 data directory: ./Processed_data/
 
@@ -27,3 +29,5 @@ Test data: (similar as above)
 
 ### Train and test model
 *run main.py*: Train and save the model as 'model_para.pkl', validate model on the test data and save the trade-off (prediction vs. reduction) result.
+
+[1]: https://mimic.mit.edu
